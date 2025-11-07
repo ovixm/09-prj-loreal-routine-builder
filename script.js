@@ -117,16 +117,6 @@ categoryFilter.addEventListener("change", async (e) => {
   displayProducts(filteredProducts);
 });
 
-loadProducts().then((allProducts) => {
-  const selectedIds = getSelectedIds();
-  // clear existing selected container
-  selectedContainer.innerHTML = "";
-  selectedIds.forEach((id) => {
-    const p = allProducts.find((prod) => Number(prod.id) === Number(id));
-    if (p) selectedContainer.appendChild(createProductCard(p));
-  });
-});
-
 // Clear all selections handler
 clearSelectionsBtn.addEventListener("click", () => {
   saveSelectedIds([]);
