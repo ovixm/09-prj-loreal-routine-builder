@@ -32,6 +32,7 @@ function displayProducts(products) {
       <div class="product-info">
         <h3>${product.name}</h3>
         <p>${product.brand}</p>
+        <p class="product-description">${product.description}</p>
       </div>
     </div>
   `
@@ -58,6 +59,7 @@ selectedContainer.addEventListener("click", function (event) {
   product.classList.remove("selected-products");
   productsContainer.appendChild(product);
 });
+
 
 /* Filter and display products when category changes */
 categoryFilter.addEventListener("change", async (e) => {

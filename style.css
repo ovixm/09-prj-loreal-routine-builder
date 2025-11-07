@@ -218,6 +218,18 @@ body {
   transform: scale(1.05);
 }
 
+.product-card .product-description {
+  display: none;
+  font-size: 13px;
+  color: #444;
+  margin-top: 8px;
+  line-height: 1.35;
+}
+
+.product-card:hover .product-description {
+  display: block;
+}
+
 /* selected products */
 .selected-products {
   margin: 40px 0;
