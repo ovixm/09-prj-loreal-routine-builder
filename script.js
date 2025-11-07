@@ -9,6 +9,8 @@ const clearSelectionsBtn = document.createElement("button");
 clearSelectionsBtn.id = "clearSelections";
 clearSelectionsBtn.className = "generate-btn";
 clearSelectionsBtn.style.marginTop = "8px";
+clearSelectionsBtn.style.backgroundColor = "#ff003b";
+
 clearSelectionsBtn.textContent = "Clear Selections";
 if (generateRoutineBtn && generateRoutineBtn.parentNode) {
   generateRoutineBtn.parentNode.insertBefore(
@@ -33,7 +35,6 @@ async function loadProducts() {
   const data = await response.json();
   return data.products;
 }
-
 
 function getSelectedIds() {
   try {
@@ -108,7 +109,6 @@ selectedContainer.addEventListener("click", function (event) {
 categoryFilter.addEventListener("change", async (e) => {
   const products = await loadProducts();
   const selectedCategory = e.target.value;
-
 
   const filteredProducts = products.filter(
     (product) => product.category === selectedCategory
@@ -207,24 +207,21 @@ function escapeHtml(unsafe) {
 }
 
 function appendMessage(role, content) {
-  
   const pageScroll = window.scrollY || window.pageYOffset || 0;
 
   const e1 = document.createElement("div");
-  
+
   e1.classList.add("message");
   e1.classList.add(role === "user" ? "user" : "assistant");
   e1.textContent = content;
   chatWindow.appendChild(e1);
 
-  
   try {
     chatWindow.scrollTo({ top: chatWindow.scrollHeight, behavior: "smooth" });
   } catch (err) {
     chatWindow.scrollTop = chatWindow.scrollHeight;
   }
 
- 
   requestAnimationFrame(() => {
     try {
       window.scrollTo({ top: pageScroll, behavior: "auto" });

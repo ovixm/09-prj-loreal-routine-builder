@@ -20,6 +20,7 @@ body {
 
 /* header */
 .site-header {
+  font-family: serif;
   text-align: center;
   padding-top: 50px;
   padding-bottom: 10px;
@@ -157,6 +158,7 @@ body {
 
 /* footer */
 .site-footer {
+  font-family: serif;
   margin: 60px 0 40px;
   text-align: center;
   font-size: 14px;
@@ -263,7 +265,7 @@ body {
   font-size: 18px;
   font-weight: 500;
   color: #fff;
-  background: #000;
+  background: #e3a535;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -285,14 +287,13 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   word-wrap: break-word;
   white-space: pre-wrap;
-  /* give each bubble a tiny margin for safer spacing fallback */
   margin: 4px 0;
 }
 
 .message.assistant {
   background: #000;
   color: #fff;
-  align-self: flex-start; /* left */
+  align-self: flex-start;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-top-left-radius: 6px;
 }
@@ -300,8 +301,7 @@ body {
 .message.user {
   background: #ff003b;
   color: #fff;
-  /* push user bubble further to the right */
-  align-self: flex-end; /* right */
+  align-self: flex-end;
   margin-left: auto;
   max-width: 60%;
   border-top-right-radius: 6px;
@@ -309,4 +309,8 @@ body {
 
 .chat-window .message:last-child {
   margin-bottom: 6px;
+}
+
+#sendBtn {
+  background: #e3a535;
 }
