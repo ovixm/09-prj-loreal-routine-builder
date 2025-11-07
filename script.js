@@ -3,6 +3,10 @@ const categoryFilter = document.getElementById("categoryFilter");
 const productsContainer = document.getElementById("productsContainer");
 const chatForm = document.getElementById("chatForm");
 const chatWindow = document.getElementById("chatWindow");
+const selectedContainer = document.getElementById("selectedProductsList");
+
+/* Worker URL for OpenAI API calls */
+const workerUrl = "https://loreal-chatbot.mt-vu555.workers.dev/";
 
 /* Show initial placeholder until user selects a category */
 productsContainer.innerHTML = `
@@ -35,6 +39,18 @@ function displayProducts(products) {
     .join("");
 }
 
+let messages;
+
+productsContainer.addEventListener("click", function (event) {
+  const product = event.target.closest(".product-card");
+  if (!product) return;
+
+  console.log(product);
+
+  product.classList.add("selected-products");
+  selectedContainer.appendChild(product);
+});
+
 /* Filter and display products when category changes */
 categoryFilter.addEventListener("change", async (e) => {
   const products = await loadProducts();
@@ -52,6 +68,9 @@ categoryFilter.addEventListener("change", async (e) => {
 /* Chat form submission handler - placeholder for OpenAI integration */
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  const userInputValue = userInput.value.trim();
+  if (!userInputValue) return;
 
   chatWindow.innerHTML = "Connect to the OpenAI API for a response!";
 });

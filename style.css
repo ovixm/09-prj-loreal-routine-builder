@@ -213,6 +213,11 @@ body {
   color: #666;
 }
 
+.product-card:hover {
+  box-shadow: 5px 5px rgba(81, 81, 81, 0.258);
+  transform: scale(1.05);
+}
+
 /* selected products */
 .selected-products {
   margin: 40px 0;
