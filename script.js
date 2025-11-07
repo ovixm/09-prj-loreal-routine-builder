@@ -41,14 +41,22 @@ function displayProducts(products) {
 
 let messages;
 
+//Adds items in product containers to selected products and removes from og container
 productsContainer.addEventListener("click", function (event) {
   const product = event.target.closest(".product-card");
   if (!product) return;
 
-  console.log(product);
-
   product.classList.add("selected-products");
   selectedContainer.appendChild(product);
+});
+
+//Adds items in selected products to product containers and removes from og container
+selectedContainer.addEventListener("click", function (event) {
+  const product = event.target.closest(".product-card");
+  if (!product) return;
+
+  product.classList.remove("selected-products");
+  productsContainer.appendChild(product);
 });
 
 /* Filter and display products when category changes */
